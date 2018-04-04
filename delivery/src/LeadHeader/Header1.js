@@ -5,12 +5,12 @@ import ButtonLogin from './ButtonLogin';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const Header1 = () => (
-    <Grid fluid>
-        <Row>
+    <Grid>
+        <Row center = "xs">
             <Col md = {3} center = "xs">
                 <Logo />
             </Col>
-            <Col md = {6} />
+            <Col md = {5} offset = "xs" />
             <Col md = {3} center = "xs">
                 <ButtonLogin />
             </Col>
