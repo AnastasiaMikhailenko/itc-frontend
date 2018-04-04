@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+<style>
+  .block{
+    margin: 0 auto;
+    height: 150px;
+    width: 500px;
+    background: red;
+  }
+  img{
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    width: 160px;
+    height: 140px;
+  }
+  a{
+    text-decoration: none;
+    font-family: Arial;
+    margin-left: 30px;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+  }
+</style>
+<body>
+  <div id="container">  </div>
+  <script>
+  const check = (img) => {
+    if (img ==  'default'){
+      return("http://signum24.ru/system/pictures/207/medium/Нет_картинки.png?1422104310")
+    }else if(img ==  'self'){
+      return("http://n1.by/sites/default/files/news/02/01/823095/1391240238.jpg")
+    }else{
+      return(img)
+    }
+  }
+                  fetch('https://www.reddit.com/top.json')
+                  .then(
+                    (response) => {
+                      if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                          response.status);
+                        return;
+                      }
+                      response.json().then((posts) => {
+                        const children = posts['data']['children'];
+                        const post = children.reduce((a, b, index) => a + '<div><div class="block"><img src="' + check(children[index]['data']['thumbnail']) + '"><p><a href="' + 'https://www.reddit.com' + children[index]['data']['permalink'] + '">' + children[index]['data']['title'] + '</a></p></div><div class="block1"></div></div>', '')
+                        document.querySelector("#container").innerHTML = post;
+                      })
+                    }
+                  );
+        
+  </script>
+
+</body>
+
+</html>
