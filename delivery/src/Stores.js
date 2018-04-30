@@ -16,7 +16,7 @@ const RestaurantStyle = styled.h1`
 
 class Stores extends React.Component {
     componentDidMount() {
-        fetch('https://itc-web1-server-iwcqwjrbcr.now.sh/stores')
+        fetch('https://itc-web1-server-iwcqwjrbcr.now.sh/stores?limit=8')
             .then((response) => response.json())
             .then((json) => this.setState({stores: json.payload.stores}))
       }
@@ -36,15 +36,21 @@ class Stores extends React.Component {
                     </Col>    
                 </Row>
                 <Row around = "xs">
-                    <Col md = {3}>
-                        <StoreCard 
-                            title = {this.state.stores.title}
-                            img = {this.state.stores.heroImageUrl}
+                {
+                    Object.keys(this.state.stores)
+                    .map( store =>
+                        <Col lg={3} md={6} sm={12}>
+                            <StoreCard 
+                            title = {this.state.stores[store]['title']}
+                            img = {this.state.stores[store]['heroImageUrl']}
                             minPrice = "900" 
                             deliveryPrice = ""
                             deliveryTime = "90"
-                        />
-                    </Col>
+                            key={this.state.stores[store]['uuid']}
+                            /> 
+                        </Col>
+                    )
+                }
                 </Row>
                 <Row center = "xs">
                     <Col md = {12}>
