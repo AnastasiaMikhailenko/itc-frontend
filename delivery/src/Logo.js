@@ -7,8 +7,8 @@ const Image = styled.img`
     margin-top: 50px;
     color: #fff;
 `
-const Logo = () => (
-    <Image src = {process.env.PUBLIC_URL + '/img/logowhite.png'} /> 
-);
+const Logo = (props) => (
+    <Image src = {process.env.PUBLIC_URL + props.img} /> 
+)
 
 export default Logo

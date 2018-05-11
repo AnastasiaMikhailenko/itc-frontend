@@ -1,18 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import LeadHeader from './LeadHeader';
 import HeaderText from './HeaderText';
 import Stores from './Stores';
 import Footer from './Footer';
+import Cataloge from './Cataloge';
 
 const Main = () => {
     return (
-      <div>
+      <React.Fragment>
         <LeadHeader />
         <HeaderText />
-        <Stores />
+        <Stores 
+          name = "Все рестораны" 
+          lg = {3} 
+          kol = {8} 
+        />
         <Footer />
-      </div>
+      </React.Fragment>
     )
 }
 

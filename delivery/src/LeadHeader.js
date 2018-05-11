@@ -56,7 +56,7 @@ const LeadHeader = () => (
         <Grid>
         <Row center = "xs" >
             <Col md = {3} center = "xs">
-                <Logo />
+                <Logo img = "/img/logowhite.png" />
             </Col>
             <Col md = {5} offset="xs" />
             <Col md = {3} center = "xs">
