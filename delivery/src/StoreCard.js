@@ -45,18 +45,14 @@ const DeliveryInfo = styled.p`
   font-family: "Open Sans", sans-serif;
 `;
 
-const StoreCard = ({ title, img, minPrice, deliveryPrice, deliveryTime }) => (
+const StoreCard = ({ title, img, priceBucket, categories }) => (
   <Link>
     <Image src = {img} />
     <Title>{title}</Title>
     <OrderInfo>
-      Заказ от
-      <MinPrice> {minPrice}р.</MinPrice>
+      {priceBucket}
+      {categories}
     </OrderInfo>
-    <Text>Доставка</Text>
-    <DeliveryInfo>
-      {deliveryPrice ? `${deliveryPrice}р.` : 'бесплатно'}, {deliveryTime} минут
-    </DeliveryInfo>
   </Link>
 );
 
